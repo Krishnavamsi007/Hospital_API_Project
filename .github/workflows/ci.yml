@@ -60,5 +60,5 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/hospital_management_system:latest
-            ${{ secrets.DOCKERHUB_USERNAME }}/hospital_management_system:${{ github.sha }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/hospital_api_project:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/hospital_api_project:${{ github.sha }}
