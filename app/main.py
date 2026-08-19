@@ -1,7 +1,7 @@
 from fastapi import Depends, FastAPI, HTTPException
 from sqlalchemy.orm import Session
 
-from app.database import SessionLocal
+from app.database import Base, SessionLocal, engine
 from app.schemas.appointment import AppointmentCreate, AppointmentRead
 from app.schemas.doctor import DoctorCreate, DoctorRead
 from app.schemas.patient import PatientCreate, PatientRead
@@ -12,6 +12,7 @@ app = FastAPI(
     version="1.0.0",
 )
 
+Base.metadata.create_all(bind=engine)
 
 def get_db():
     db = SessionLocal()
