@@ -1,0 +1,44 @@
+[project]
+name = "mems"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Krishnavamsi007", email = "krishnavamsikoti@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi==0.128.0",
+    "uvicorn==0.35.0",
+    "pydantic[email]==2.12.0",
+    "sqlalchemy==2.0.43",
+    "alembic==1.18.3",
+    "httpx==0.28.1",
+    "email-validator==2.3.0",
+]
+
+[tool.poetry]
+package-mode = false
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.14.0"
+pytest = "^8.4.2"
+pytest-cov = "^7.0.0"
+bandit = "^1.9.3"
+black = "^26.1.0"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 88
+target-version = ["py39"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+ignore = ["E501"]
+
+[tool.bandit]
+exclude_dirs = ["tests"]
+skips = ["B101"]
